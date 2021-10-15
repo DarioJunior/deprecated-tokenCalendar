@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "install": "npm run install-front && npm run install-back",
+    "install-back": "npm --prefix backend/ install",
+    "install-front": "npm --prefix frontend/ install"
   }
 }
