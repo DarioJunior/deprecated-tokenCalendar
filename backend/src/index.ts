@@ -1,5 +1,7 @@
 import express from 'express';
 import registerRouter from './routes/register.router';
+import loginRouter from './routes/login.router';
+
 
 const PORT = 3333;
 const app = express();
