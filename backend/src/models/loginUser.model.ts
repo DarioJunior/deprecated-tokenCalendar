@@ -8,10 +8,12 @@ export async function findUserByUsername({ username }: any) {
           WHERE username = ?
         `, [username]);
   
-    if (result === []) return false;
-  
-    return {
-      username: result[0].username,
-      password: result[0].password,
-    };
+    if (result.length !== 0) {
+      return {
+        username: result[0].username,
+        password: result[0].password,
+      };
+    }
+    
+    return false;
 }
