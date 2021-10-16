@@ -27,12 +27,12 @@ describe('1)REGISTER CONTROLLER:', () => {
     });
 
     it('1.1.1) return status 201', async() => {
-      await RegisterController.RegisterUserController(req, res);
+      await RegisterController.createUser(req, res);
       expect((res.status).calledWith(201)).to.be.equal(true);
     });
 
     it('1.1.2) return "Usuário cadastrado com sucesso"', async() => {
-      await RegisterController.RegisterUserController(req, res);
+      await RegisterController.createUser(req, res);
       expect((res.send).calledWith('Usuário cadastrado com sucesso!')).to.be.equal(true);
     });
   });
