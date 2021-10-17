@@ -1,6 +1,7 @@
 import express from 'express';
 import registerRouter from './routes/register.router';
 import loginRouter from './routes/login.router';
+import eventsRouter from './routes/events.router';
 
 
 const PORT = 3333;
@@ -9,6 +10,7 @@ app.use(express.json());
 
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/events', eventsRouter);
 
 app.listen(PORT, () => console.log('server is running'));
 

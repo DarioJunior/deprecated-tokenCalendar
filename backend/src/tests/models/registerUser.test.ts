@@ -1,8 +1,6 @@
 import { expect } from 'chai';
 import { createUserInDB } from '../../models/registerUser.model';
 
-
-
 //Pesquisar "memory db para Mysql"
 describe('1)REGISTER MODELS:', () => {
   describe('1.1)if register successful', () => {
