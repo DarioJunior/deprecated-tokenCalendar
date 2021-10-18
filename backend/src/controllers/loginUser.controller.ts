@@ -5,11 +5,12 @@ import { checkUserLogin } from '../services/loginUser.service';
 export async function loginUser(req: Request, res: Response) {
   try {
     const { username, password } = req.body;
+    console.log('aqui?:', username, password);
     const result = await checkUserLogin({ username, password });
-    if (!result) res.status(StatusCodes.NOT_FOUND).send('Credenciais inválidas, tente novamente.');
-
-    res.status(StatusCodes.OK).send('Usuário autenticado com sucesso.');
+    console.log(result);
+    if (!result) return res.send([]);
+    res.status(StatusCodes.OK).json(result);
   } catch (err) {
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR);
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
   }
 }

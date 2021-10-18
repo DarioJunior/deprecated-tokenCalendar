@@ -1,8 +1,22 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { Register } from './pages/Register';
+import { Home } from './pages/Home';
+import { Events } from './pages/Events';
+
+import UserProvider from './context/UserProvider';
+
 export function App() {
   return(
-    <>
-      <h1> Olá mundo </h1>
-    </>
+    <BrowserRouter>
+     <UserProvider>
+      <Switch>
+        <Route exact path="/" component={ Home }/>
+        <Route exact path="/register" component={ Register } />
+        <Route exact path="/events" component={ Events } />
+      </Switch>
+     </UserProvider>
+    </BrowserRouter>
   );
 }
 

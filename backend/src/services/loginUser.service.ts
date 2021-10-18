@@ -5,5 +5,5 @@ export async function checkUserLogin({ username, password }: any) {
   if (!user) return false;
   if (user.password !== password) return false;
   
-  return true;
+  return user;
 };

@@ -5,6 +5,7 @@ import { registerUser } from '../services/registerUser.service';
 export async function createUser( req: Request, res: Response){
   try { 
     const { username, name, password } = req.body;
+    console.log(req.body)
     const result = await registerUser({ username, name, password });
     if(!result) res.status(StatusCodes.BAD_REQUEST).send('Erro no controller');
 
