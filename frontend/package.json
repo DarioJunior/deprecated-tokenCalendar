@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/react-calendar": "^3.4.3",
     "@types/styled-components": "^5.1.15",
     "axios": "^0.23.0",
     "react": "^17.0.2",
@@ -36,6 +37,8 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.4.0",
     "html-webpack-plugin": "^5.4.0",
+    "less": "^4.1.2",
+    "less-loader": "^10.1.0",
     "node-sass": "^6.0.1",
     "react-refresh": "^0.10.0",
     "react-refresh-typescript": "^2.0.2",

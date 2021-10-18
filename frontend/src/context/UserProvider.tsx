@@ -10,14 +10,15 @@ const UserContextProvider: FC = ({ children }) => {
   const [userInfos, setUserInfos] = useState(DEFAULT_CONTEXT.userInfos);
   const [isLoggedIn, setIsLoggedIn] = useState(DEFAULT_CONTEXT.isLoggedIn)
   const [loggedUserInfo, setLoggedUserInfo] = useState(DEFAULT_CONTEXT.loggedUserInfo);
+  const [eventList, setEventList] = useState(DEFAULT_CONTEXT.eventList);
 
   const history = useHistory();
 
 
   useEffect(() => {
-    console.log('Entrou no useEffect isLoggedIn', isLoggedIn)
     if(isLoggedIn) {
-      history.push('/events')
+      const { id }:any = loggedUserInfo;
+      history.push(`/events/${id}`)
     }
   }, [isLoggedIn]);
 
@@ -49,6 +50,7 @@ const UserContextProvider: FC = ({ children }) => {
       fetchRegisterUserInDB(registerUserInfo)
     }
   }, [registerUserInfo]);
+
   return (
     <UserContext.Provider value={{
       userInfos,
@@ -56,7 +58,9 @@ const UserContextProvider: FC = ({ children }) => {
       isLoggedIn,
       loggedUserInfo,
       registerUserInfo,
-      setRegisterUserInfo
+      setRegisterUserInfo,
+      eventList,
+      setEventList
     }}
   >
     { children }

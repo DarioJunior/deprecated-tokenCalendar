@@ -1,6 +1,8 @@
 import { createContext } from 'react';
 import IUser from '../repositories/IUser';
 import IRegisterUser from '../repositories/IRegisterUser';
+import IEventList from '../repositories/IEventList';
+
 
 type PropsUserContext = {
   userInfos: IUser;
@@ -9,15 +11,17 @@ type PropsUserContext = {
   loggedUserInfo: boolean | IUser;
   registerUserInfo: IRegisterUser;
   setRegisterUserInfo: React.Dispatch<React.SetStateAction<any>>;
+  eventList: IEventList;
+  setEventList: React.Dispatch<React.SetStateAction<any>>
 };
 
 export const DEFAULT_CONTEXT = {
+  setUserInfos: () => {},
   userInfos: {
     name: "",
     username: "",
     password: "",
   },
-  setUserInfos: () => {},
   isLoggedIn: false,
   loggedUserInfo: false,
   setRegisterUserInfo: () => {},// type: UserType da problemas em compartilhar o value
@@ -25,7 +29,17 @@ export const DEFAULT_CONTEXT = {
     name: "",
     username: "",
     password: "",
+  },
+  setEventList: () => {},
+  eventList: {
+    id: "",
+    hostId: "",
+    name: "",
+    description: "",
+    startAt: "",
+    finisheAt: "",
   }
+  
 };
 
 const UserContext = createContext<PropsUserContext>(DEFAULT_CONTEXT);

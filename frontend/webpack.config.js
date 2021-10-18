@@ -22,7 +22,7 @@ module.exports = {
     publicPath: '/' // (1) extra para funcionar direito o Router
   },
   resolve: {
-    extensions: [ '.js', '.jsx', '.ts', '.tsx'],
+    extensions: [ '.js', '.jsx', '.ts', '.tsx', '.less'],
   },
   plugins: [
     isDevelopment && new ReactRefreshWebpackPlugin(),
@@ -77,6 +77,10 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
+      },
+      {
+        test: /\.(css|less)$/,
+        loaders: ['style-loader', 'css-loader', 'less-loader'],
       },
     ]
   }
